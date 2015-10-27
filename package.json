@@ -1,7 +1,7 @@
 {
     "name": "react-left-nav",
     "description": "Left nav component that pushes content right",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": {
         "name": "Jean de Klerk"
     },
@@ -29,30 +29,6 @@
         "vinyl-buffer": "^1.0.0",
         "vinyl-source-stream": "^1.1.0",
         "yargs": "^3.25.0"
-    },
-    "browser": {
-        "jquery": "./node_modules/jquery/dist/jquery.js",
-        "bootstrap-transition": "./node_modules/bootstrap/js/transition.js",
-        "jasny-offcanvas": "./node_modules/jasny-bootstrap/js/offcanvas.js"
-    },
-    "browserify-shim": {
-        "jquery": "$",
-        "bootstrap-transition": {
-            "depends": [
-                "jquery"
-            ]
-        },
-        "jasny-offcanvas": {
-            "depends": [
-                "jquery",
-                "bootstrap-transition"
-            ]
-        }
-    },
-    "browserify": {
-        "transform": [
-            "browserify-shim"
-        ]
     },
     "bugs": {
         "url": "https://github.com/jadekler/git-react-left-nav/issues"
