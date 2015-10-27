@@ -1,0 +1,49 @@
+{
+    "dependencies": {
+        "bootstrap": "^3.3.5",
+        "jasny-bootstrap": "^3.1.3",
+        "jquery": "^2.1.4",
+        "react": "^0.14.0",
+        "react-dom": "^0.14.0"
+    },
+    "devDependencies": {
+        "browserify": "^11.0.1",
+        "browserify-shim": "^3.8.11",
+        "babelify": "~5.0.3",
+        "del": "^2.0.2",
+        "gulp": "^3.9.0",
+        "gulp-clean": "^0.3.1",
+        "gulp-concat": "^2.6.0",
+        "gulp-replace": "^0.5.4",
+        "gulp-uglify": "^1.4.1",
+        "vinyl-buffer": "^1.0.0",
+        "vinyl-source-stream": "^1.1.0",
+        "yargs": "^3.25.0"
+    },
+    "browser": {
+        "jquery": "./node_modules/jquery/dist/jquery.js",
+        "bootstrap-transition": "./node_modules/bootstrap/js/transition.js",
+        "bootstrap-collapse": "./node_modules/bootstrap/js/collapse.js",
+        "jasny-offcanvas": "./node_modules/jasny-bootstrap/js/offcanvas.js"
+    },
+    "browserify-shim": {
+        "jquery": "$",
+        "bootstrap-transition": {
+            "depends": ["jquery"]
+        },
+        "bootstrap-collapse": {
+            "depends": ["jquery", "bootstrap-transition"]
+        },
+        "jasny-offcanvas": {
+            "depends": ["jquery", "bootstrap-transition"]
+        }
+    },
+    "browserify": {
+        "transform": [
+            "browserify-shim"
+        ]
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/karma start --single-run --browsers Firefox"
+    }
+}
