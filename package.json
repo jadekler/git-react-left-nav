@@ -18,6 +18,24 @@
             "url": "https://github.com/jadekler/git-react-left-nav/blob/master/LICENSE-MIT"
         }
     ],
+    "maintainers": [
+        {
+            "name": "Jean de Klerk",
+            "email": "jadeklere@gmail.com"
+        }
+    ],
+    "keywords": [
+        "react",
+        "nav",
+        "left",
+        "right",
+        "push",
+        "slide"
+    ],
+    "files": [
+        "src",
+        "LICENSE-MIT"
+    ],
     "dependencies": {
         "bootstrap": "^3.3.5",
         "jasny-bootstrap": "^3.1.3",
