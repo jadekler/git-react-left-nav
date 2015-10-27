@@ -1,7 +1,7 @@
 {
     "name": "react-left-nav",
     "description": "Left nav component that pushes content right",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": {
         "name": "Jean de Klerk"
     },
@@ -77,8 +77,10 @@
         "push",
         "slide"
     ],
+    "main": "index.js",
     "files": [
-        "src",
+        "index.js",
+        "LeftNav.jsx",
         "LICENSE-MIT"
     ]
 }

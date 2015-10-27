@@ -22,10 +22,10 @@ const babelifyOpts = {
 gulp.task('browserify:app', [], function() {
     return browserify(browserifyOpts)
         .transform(babelify.configure(babelifyOpts))
-        .require('./src/app.js', {entry: true})
+        .require('./app.js', {entry: true})
         .bundle()
         .pipe(source('./app.js'))
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('dist/'))
 })
 
 gulp.task('clean:js', function() {
