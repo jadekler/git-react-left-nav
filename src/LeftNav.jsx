@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import 'jasny-offcanvas'
 
-export default class NavPushRight extends Component {
+export default class LeftNav extends Component {
     render() {
         const links = [
             {

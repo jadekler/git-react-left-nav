@@ -19,21 +19,12 @@ const babelifyOpts = {
     compact: false
 }
 
-gulp.task('browserify:dropdown', [], function() {
+gulp.task('browserify:app', [], function() {
     return browserify(browserifyOpts)
         .transform(babelify.configure(babelifyOpts))
-        .require('./src/app-dropdown.js', {entry: true})
+        .require('./src/app.js', {entry: true})
         .bundle()
-        .pipe(source('./app-dropdown.js'))
-        .pipe(gulp.dest('dist/js'))
-})
-
-gulp.task('browserify:pushright', [], function() {
-    return browserify(browserifyOpts)
-        .transform(babelify.configure(babelifyOpts))
-        .require('./src/app-pushright.js', {entry: true})
-        .bundle()
-        .pipe(source('./app-pushright.js'))
+        .pipe(source('./app.js'))
         .pipe(gulp.dest('dist/js'))
 })
 
@@ -41,4 +32,4 @@ gulp.task('clean:js', function() {
     return del(['dist/js/*', 'dist/js'])
 })
 
-gulp.task('default', ['clean:js', 'browserify:dropdown', 'browserify:pushright'])
+gulp.task('default', ['clean:js', 'browserify:app'])
