@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 
-export default class LeftNav extends Component {
-    initialState() {
+const LeftNav = React.createClass({
+    getInitialState() {
         return {
             active: false
         }
-    }
+    },
 
     handleClick(event) {
         this.state.active = !this.state.active
@@ -17,7 +17,7 @@ export default class LeftNav extends Component {
             document.getElementsByTagName("body")[0].style.position = ""
             document.getElementsByTagName("body")[0].style.left = ""
         }
-    }
+    },
 
     render() {
         return (
@@ -46,7 +46,7 @@ export default class LeftNav extends Component {
                 </div>
             </nav>
         )
-    }
+    },
 
     _listItems(links = []) {
         if (links.length == 0) {
@@ -66,4 +66,6 @@ export default class LeftNav extends Component {
             }
         })
     }
-}
+})
+
+export default LeftNav
