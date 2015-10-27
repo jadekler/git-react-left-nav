@@ -1,32 +1,31 @@
 import React, { Component, PropTypes } from 'react'
-import 'jasny-offcanvas'
 
 export default class LeftNav extends Component {
-    render() {
-        const links = [
-            {
-                active: true,
-                url: '#',
-                text: 'Hello world!'
-            },
-            {
-                active: false,
-                url: '#',
-                text: 'Foo!'
-            },
-            {
-                active: false,
-                url: '#',
-                text: 'Bar!'
-            }
-        ]
+    initialState() {
+        return {
+            active: false
+        }
+    }
 
+    handleClick(event) {
+        this.state.active = !this.state.active
+
+        if (this.state.active) {
+            document.getElementsByTagName("body")[0].style.position = "relative"
+            document.getElementsByTagName("body")[0].style.left = "300px"
+        } else {
+            document.getElementsByTagName("body")[0].style.position = ""
+            document.getElementsByTagName("body")[0].style.left = ""
+        }
+    }
+
+    render() {
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <button type="button" className="navbar-toggle"
-                                data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+                        <button type="button" className="navbar-toggle" data-target=".navmenu" data-canvas="body"
+                                onClick={this.handleClick}>
                             <span className="sr-only">Toggle navigation</span>
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
@@ -34,14 +33,14 @@ export default class LeftNav extends Component {
                         </button>
                         <a className="navbar-brand" href="#">Brand</a>
                         <ul className="nav navbar-nav hidden-xs">
-                            {this._listItems(links)}
+                            {this._listItems(this.props.links)}
                         </ul>
                     </div>
 
                     <div className="offcanvas navmenu navmenu-default navmenu-fixed-left">
                         <a className="navmenu-brand" href="#">Project name</a>
                         <ul className="nav navmenu-nav">
-                            {this._listItems(links)}
+                            {this._listItems(this.props.links)}
                         </ul>
                     </div>
                 </div>
@@ -49,11 +48,16 @@ export default class LeftNav extends Component {
         )
     }
 
-    _listItems(links) {
+    _listItems(links = []) {
+        if (links.length == 0) {
+            console.debug("No links passed to LeftNav. Try <LeftNav links={someLinks} />")
+        }
+
         return links.map(function(link, index) {
             if (link.active) {
                 return (
-                    <li key={index} className="active"><a href={link.url}>{link.text}<span className="sr-only">(current)</span></a></li>
+                    <li key={index} className="active"><a href={link.url}>{link.text}<span
+                        className="sr-only">(current)</span></a></li>
                 )
             } else {
                 return (

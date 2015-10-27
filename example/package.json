@@ -1,6 +1,5 @@
 {
     "dependencies": {
-        "react-left-nav": "^0.0.3",
         "react": "^0.14.0",
         "react-dom": "^0.14.0"
     },
